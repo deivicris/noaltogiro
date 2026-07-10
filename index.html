@@ -961,7 +961,7 @@
       </div>
 
       <div style="margin-top:34px;">
-        <a href="http://blog.noaltogiro.com.br/" target="_blank" rel="noopener" class="btn btn--outline">Ver todas as matérias no blog</a>
+        <a href="https://blog.noaltogiro.com.br/" target="_blank" rel="noopener" class="btn btn--outline">Ver todas as matérias no blog</a>
       </div>
     </div>
   </section>
@@ -1144,12 +1144,12 @@
 
   // ===== Últimas matérias do Blogger (feed público JSONP) =====
   // TROQUE AQUI se o domínio do blog mudar
-  const BLOG_FEED_URL = 'https://www.blog.noaltogiro.com.br/feeds/posts/default?alt=json-in-script&max-results=3&callback=renderBlogPosts';
+  const BLOG_FEED_URL = 'https://blog.noaltogiro.com.br/feeds/posts/default?alt=json-in-script&max-results=3&callback=renderBlogPosts';
 
   function showBlogFallback(){
     const grid = document.getElementById('blogGrid');
     if (!grid) return;
-    grid.innerHTML = '<div class="blog-card blog-card--loading">Não deu pra carregar os posts automaticamente agora — <a href="https://www.blog.noaltogiro.com.br/" target="_blank" rel="noopener">veja direto no blog</a>.</div>';
+    grid.innerHTML = '<div class="blog-card blog-card--loading">Não deu pra carregar os posts automaticamente agora — <a href="https://blog.noaltogiro.com.br/" target="_blank" rel="noopener">veja direto no blog</a>.</div>';
   }
 
   window.renderBlogPosts = function(json){
@@ -1162,7 +1162,7 @@
     entries.slice(0, 3).forEach(entry => {
       const title = entry.title && entry.title.$t ? entry.title.$t : 'Matéria';
       const linkObj = (entry.link || []).find(l => l.rel === 'alternate');
-      const url = linkObj ? linkObj.href : 'https://www.blog.noaltogiro.com.br/';
+      const url = linkObj ? linkObj.href : 'https://blog.noaltogiro.com.br/';
       const rawText = (entry.summary && entry.summary.$t) || (entry.content && entry.content.$t) || '';
       const plain = rawText.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
       const excerpt = plain.length > 130 ? plain.slice(0, 130).trim() + '…' : plain;
